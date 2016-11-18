@@ -316,6 +316,15 @@ extern NSString *const CHTCollectionElementKindSectionFooter;
 @property (nonatomic, assign) CGFloat minimumContentHeight;
 
 /**
+ *  @brief Disables the collision detection between IATimestampCells
+ *  @discussion
+ *    This boolean disables the collision detection between IATimestampCells, so these cells aren't repositioned in a way that they do not stay on the same line.
+ *
+ *    Default: NO
+ */
+@property (nonatomic, assign) BOOL disableTimestampCellCollisionDetection;
+
+/**
  *  @brief The calculated width of an item in the specified section.
  *  @discussion
  *    The width of an item is calculated based on number of columns, the collection view width, and the horizontal insets for that section.

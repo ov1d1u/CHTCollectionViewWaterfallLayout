@@ -186,6 +186,7 @@ static CGFloat CHTFloorCGFloat(CGFloat value) {
   _headerInset  = UIEdgeInsetsZero;
   _footerInset  = UIEdgeInsetsZero;
   _itemRenderDirection = CHTCollectionViewWaterfallLayoutItemRenderDirectionShortestFirst;
+  _disableTimestampCellCollisionDetection = NO;
 }
 
 - (id)init {
@@ -321,7 +322,7 @@ static CGFloat CHTFloorCGFloat(CGFloat value) {
             attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
             attributes.frame = CGRectMake(xOffset, yOffset, itemWidth, itemHeight);
             CGFloat overlappingHeight = 0.0;
-            if ([self checkForFrameCollision:attributes.frame atIndexPath:indexPath overlappingHeight:&overlappingHeight]) {
+            if (!self.disableTimestampCellCollisionDetection && [self checkForFrameCollision:attributes.frame atIndexPath:indexPath overlappingHeight:&overlappingHeight]) {
                 attributes.frame = CGRectMake(xOffset, yOffset + overlappingHeight + self.minimumInteritemSpacing*2, itemWidth, itemHeight);
             }
             [itemAttributes addObject:attributes];
