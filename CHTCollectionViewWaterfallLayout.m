@@ -322,7 +322,6 @@ static CGFloat CHTFloorCGFloat(CGFloat value) {
             attributes.frame = CGRectMake(xOffset, yOffset, itemWidth, itemHeight);
             CGFloat overlappingHeight = 0.0;
             if ([self checkForFrameCollision:attributes.frame atIndexPath:indexPath overlappingHeight:&overlappingHeight]) {
-                NSLog(@"overlappingHeight: %f", overlappingHeight);
                 attributes.frame = CGRectMake(xOffset, yOffset + overlappingHeight, itemWidth, itemHeight);
             }
             [itemAttributes addObject:attributes];
